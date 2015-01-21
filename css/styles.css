@@ -1,0 +1,43 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+}
+
+#wizardBtnModal {
+  width: 200px;
+  margin: 0 auto;
+  display: block;
+  padding: 10px;
+}
+
+.modal-footer,
+.modal-header {
+  background-color: #f7f7ff;
+  padding: 10px;
+}
+
+#closeModal {
+  color: #a69d9d;
+  display: block;
+  float: right;
+  font-size: 31px;
+  cursor: pointer;
+  line-height: 36px;
+}
+
+#closeModal:hover {
+  color: red;
+}
+
+.modal-header h3 {
+  cursor: default;
+  color: #e09432;
+  display: inline-block;
+  line-height: 36px;
+  margin: 0;
+}
+
+.modal-content {
+  overflow: hidden;
+}

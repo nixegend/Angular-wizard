@@ -1,0 +1,36 @@
+<div class="modal-header">
+	<span id="closeModal" ng-click="closeModal()">&times;</span>
+	<h3>Angular-Wizard</h3>
+</div>
+
+	<div class="modal-body">
+
+		<ul id="navigationWizard">
+			<li ng-repeat="step in steps" ng-class="{'btn-primary':isCurrentStep($index)}" 
+			ng-click="setCurrentStep($index)">{{step}}</li>
+		</ul>	
+
+		<div id="wizardBody" ng-switch="getCurrentStep()" ng-animate="'animate'">
+			<section ng-switch-when="one" data-step="one">
+				<h1>step one</h1>
+				<input type="text" name="" value="" placeholder="">
+			</section>
+
+			<section ng-switch-when="two" data-step="two">
+				<h1>step two</h1>
+				<input type="text" name="" value="" placeholder="">
+			</section>
+
+			<section ng-switch-when="three" data-step="three">
+				<h1>step three</h1>
+				<input type="text" name="" value="" placeholder="">
+			</section>
+		</div>
+
+	</div>
+
+
+<div class="modal-footer">
+	<a class="btn" ng-click="handlePrevious()" ng-show="!isFirstStep()">Back</a>
+	<a class="btn btn-primary" ng-click="handleNext(dismiss)">{{getNextLabel()}}</a>
+</div>	
