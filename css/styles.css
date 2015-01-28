@@ -11,8 +11,8 @@ body {
   padding: 10px;
 }
 
-.modal-footer,
-.modal-header {
+.modal-footer.wizard,
+.modal-header.wizard {
   background-color: #f7f7ff;
   padding: 10px;
 }
@@ -40,4 +40,106 @@ body {
 
 .modal-content {
   overflow: hidden;
+}
+
+.modal-body.wizard {
+  width: 100%;
+  padding: 0;
+  display:table;
+}
+
+.baseTable {
+  height: 300px;
+  display: table-row;
+}
+
+#wizardBody {
+  display: table-cell;
+  overflow: hidden;
+  padding: 10px;
+  position: relative;
+  width: 75%;
+}
+
+#navigationWizard {
+  background-color: #f9f9f9;
+  border-right: 1px solid #e4e4e4;
+  box-shadow: 1px 0 4px -4px #000;
+  vertical-align: middle;
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+}
+
+#navigationWizard li {
+  background-color: #f4f4f4;
+  color: #b1b1b1;
+  border-top: 1px solid #e1e1e1;
+  cursor: pointer;
+  list-style: outside none none;
+  padding: 7px 5px;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+#navigationWizard li:hover {
+  background-color: #d9f7ff;
+}
+
+#navigationWizard li:last-child {
+  border-bottom: 1px solid #e1e1e1;
+}
+
+#navigationWizard li b {
+  font-size: 23px;
+  line-height: 16px;
+  padding: 10px;
+}
+
+#navigationWizard li.active {
+  background-color: #f9f9f9;
+  color: #17aeff;
+}
+
+#navigationWizard li span {
+  font-family: arial;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.modal-footer.wizard {
+  margin: 0;
+}
+
+.modal-footer.wizard .progress {
+  margin-bottom: 0; 
+}
+
+.ng-enter, 
+.ng-leave {
+  -webkit-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -moz-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -ms-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  -o-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  position: absolute;
+  width: 100%;
+}
+
+.ng-enter {
+  left: 100%;
+}
+
+.ng-enter.ng-enter-active {
+  left: 0;
+}
+
+.ng-leave {
+  left: 0;
+}
+
+.ng-leave.ng-leave-active{
+  left: -100%;
 }

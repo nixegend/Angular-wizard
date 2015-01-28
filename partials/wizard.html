@@ -1,36 +1,46 @@
-<div class="modal-header">
+<div class="modal-header wizard">
 	<span id="closeModal" ng-click="closeModal()">&times;</span>
 	<h3>Angular-Wizard</h3>
 </div>
 
-	<div class="modal-body">
+	<div class="modal-body wizard">
+		<div class="baseTable">
+			<ul id="navigationWizard">
+				<li ng-repeat="step in steps" ng-class="{'active':isCurrentStep($index)}" 
+				ng-click="setCurrentStep($index)"><b>&#9675;</b><span>{{step}}</span></li>
+			</ul>	
 
-		<ul id="navigationWizard">
-			<li ng-repeat="step in steps" ng-class="{'btn-primary':isCurrentStep($index)}" 
-			ng-click="setCurrentStep($index)">{{step}}</li>
-		</ul>	
+			<div id="wizardBody" ng-switch="getCurrentStep()" ng-animate="'animate'">
+				<section ng-switch-when="one" data-step="one">
+					<h1>step one</h1>
+					<input type="text">
+				</section>
 
-		<div id="wizardBody" ng-switch="getCurrentStep()" ng-animate="'animate'">
-			<section ng-switch-when="one" data-step="one">
-				<h1>step one</h1>
-				<input type="text" name="" value="" placeholder="">
-			</section>
+				<section ng-switch-when="two" data-step="two">
+					<h1>step two</h1>
+					<input type="text">
+				</section>
 
-			<section ng-switch-when="two" data-step="two">
-				<h1>step two</h1>
-				<input type="text" name="" value="" placeholder="">
-			</section>
-
-			<section ng-switch-when="three" data-step="three">
-				<h1>step three</h1>
-				<input type="text" name="" value="" placeholder="">
-			</section>
+				<section ng-switch-when="three" data-step="three">
+					<h1>step three</h1>
+					<input type="text">
+				</section>
+			</div>
 		</div>
-
 	</div>
 
-
-<div class="modal-footer">
-	<a class="btn" ng-click="handlePrevious()" ng-show="!isFirstStep()">Back</a>
-	<a class="btn btn-primary" ng-click="handleNext(dismiss)">{{getNextLabel()}}</a>
-</div>	
+<div class="modal-footer wizard">
+	<div class="row">
+		<div class="col-md-10">
+			<progressbar class="progress-striped active" max="200" value="166" type="warning">
+			<i>80%</i>
+			</progressbar>
+		</div>
+		<div class="col-md-2">
+			<span class="btn btn-xs btn-primary" 
+			ng-click="handlePrevious()" ng-disabled="isFirstStep()">Back</span>
+			<span class="btn btn-xs btn-primary" 
+			ng-click="handleNext()" ng-disabled="isLastStep()">Next</span>
+		</div>
+	</div>
+</div>

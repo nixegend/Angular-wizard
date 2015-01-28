@@ -26,24 +26,13 @@ moduleWizard.controller('WizardCtrl', function ($scope, $modal) {
     return $scope.steps[$scope.step];
   };
 
-  $scope.getNextLabel = function() {
-    return ($scope.isLastStep()) ? 'Submit' : 'Next'; 
-  };
-
   $scope.handlePrevious = function() {
     $scope.step -= ($scope.isFirstStep()) ? 0 : 1;
   };
 
-  $scope.handleNext = function(dismiss) {
-    if($scope.isLastStep()) {
-        $scope.$close();
-    } else {
-      $scope.step += 1;
-    }
+  $scope.handleNext = function() {
+    $scope.step += 1;
   };
-
-
-
 
   $scope.openModal = function (size) {
     $modal.open({
@@ -56,6 +45,5 @@ moduleWizard.controller('WizardCtrl', function ($scope, $modal) {
   $scope.closeModal = function(){
     $scope.$close();
   };
-
 
 });
